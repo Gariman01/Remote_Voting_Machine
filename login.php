@@ -73,7 +73,7 @@ function test_input($data) {
 <form class="hi" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
 
- <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="Name" required><span class="error">*</span></div>
+ <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="First Name" required><span class="error">*</span></div>
  <div class="item4"><input type="password" name="pass" id="myInput"  placeholder="Voter-Id"  required><span class="error">*</span></div>
 
 <div class="item5"><input type="checkbox" onclick="myFunction()">  Show the Voter-id</div>
@@ -126,7 +126,7 @@ $password=stripcslashes($p);
 $username=mysqli_real_escape_string($con,$username);
 $password=mysqli_real_escape_string($con,$password);
 
-$sql="SELECT * FROM logintable where username='$username' and password='$password' ";
+$sql="SELECT * FROM logintable where username like '{$username} %' and password='$password' ";
 $result=mysqli_query($con,$sql);
 $count=mysqli_num_rows($result);
 $row=mysqli_fetch_array($result);
@@ -140,16 +140,24 @@ if($username==$ad_name and $password==$ad_pass)
 
 if($count==1 and $row['status']==0)
 {	
-	$_SESSION['id']=$password;
-	setcookie("UserID",$username);
-    header("Location:login.html");
-	exit();
+	$firstname=strtok($row['username']," ");
+ 	if($firstname==$username)
+	{
+		$_SESSION['id']=$password;
+		setcookie("UserID",$username);
+    		header("Location:login.html");
+		exit();
+	}
+	else
+	{
+		echo "<strong>Case not matched</strong>";	
+	}
 }
-if($count!=1 and $password!="")
+elseif($count!=1 and $password!="")
 {
 	echo "<strong>Username or password didn't match</strong>";
 }
-if($count==1 and $row['status']==1)
+elseif($count==1 and $row['status']==1)
 {
 	echo '<strong>This user has already voted</strong>';
 }
