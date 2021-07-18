@@ -202,7 +202,6 @@ if($p1!=$p2 and $p1!="")
 
 if(!isset($_FILES['upload']))
 {
-	$_FILES['upload']['name']="";
 	$_FILES['upload']['tmp_name']="";
 }
 
@@ -227,7 +226,7 @@ if(!(valid($num)) and $p1!="")
 
 function validated($p1)
 {
-	if(strlen($p1)==10)
+	if(strlen($p1)==10 or $p1=="")
 	{
 		return true;
 	}
@@ -248,10 +247,6 @@ if($p1==$p2 and valid($num) and validated($p1) and isset($_POST['submit']))
 {
 	include("connection.php");
 	
-	$filename=basename($_FILES['upload']['name']);
-	$temp=$_FILES['upload']['tmp_name'];
-	$folder="img/".$filename;
-	
 	$username=stripcslashes($u);
 	$password=stripcslashes($p1);
 	$add=stripcslashes($add);
@@ -261,6 +256,10 @@ if($p1==$p2 and valid($num) and validated($p1) and isset($_POST['submit']))
 	$password=mysqli_real_escape_string($con,$password);
 	$add=mysqli_real_escape_string($con,$add);
 	$sex=mysqli_real_escape_string($con,$sex);
+	
+	$filename=strtok($username," ").".jpg";
+	$temp=$_FILES['upload']['tmp_name'];
+	$folder="img/".$filename;
 
 	if(move_uploaded_file($temp,$folder))
 	{
