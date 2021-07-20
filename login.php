@@ -126,7 +126,7 @@ $password=stripcslashes($p);
 $username=mysqli_real_escape_string($con,$username);
 $password=mysqli_real_escape_string($con,$password);
 
-$sql="SELECT * FROM logintable where username like '{$username} %' and password='$password' ";
+$sql="SELECT * FROM logintable where (username='$username' or username like '{$username} %') and password='$password' ";
 $result=mysqli_query($con,$sql);
 $count=mysqli_num_rows($result);
 $row=mysqli_fetch_array($result);
