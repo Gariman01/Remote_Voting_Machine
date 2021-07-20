@@ -6,7 +6,7 @@ body{
 padding-left:20px;
 padding-right:20px;
 text-align:center;
-background-color:#90ee90;
+background-color:#87CEFA;
 }
 
 .item{
@@ -49,13 +49,31 @@ background-color:green;}
 .nota{
 background-color:gray;}
 
-<?php echo "sddsfsgfsgdfgf";?>
+input[type=submit] {
+     background: #00FF00;
+     color: #fff;
+     border: 1px solid #eee;
+     border-radius: 20px;
+     box-shadow: 5px 5px 5px #eee;
+     text-shadow:none;
+}
+input[type=submit]:hover {
+     background: #228B22;
+     color: #fff;
+     border: 1px solid #eee;
+     border-radius: 20px;
+     box-shadow: 5px 5px 5px #eee;
+     text-shadow:none;
+}
 
 </style>
 
 <body>
 
-<div style="float:left;"><A href="signup.php">signup</A></div>
+<form method='POST' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+<div style="float:left;"><input type='submit' name="submit" value='Reset' ></div>
+</form>
+	
 <div style="float:right;"><A href="signout.php">signout</A></div>
 <h1>Voting results</h1>
 <h2>(as of now)</h2>
@@ -71,8 +89,13 @@ if(!isset($id))
 	header("Location:login.php");
 }
 
-$sql="SELECT * FROM logintable";
-$count=mysqli_num_rows(mysqli_query($con,$sql));
+if(isset($_POST['submit']))
+{
+	$sql="UPDATE votetable set vote=0";
+	mysqli_query($con,$sql);	
+	$sql="UPDATE logintable set status=0";
+	mysqli_query($con,$sql);	
+}
 
 $sql="SELECT * FROM votetable WHERE party='con' ";
 $row=mysqli_fetch_array(mysqli_query($con,$sql));
