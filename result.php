@@ -4,7 +4,7 @@
 
 body{
 text-align:center;
-background-color:#26C651;
+background-color:#00BFFF;
 background-repeat:no-repeat;
 background-size:cover;
 }
