@@ -21,15 +21,15 @@ grid-template-areas: "p1 v1"
 font-size:24px;
 }
 
-.item1{grid-area:p1;text-align:left;background-color:#f88379;margin:10px;padding:10px;}
+.item1{grid-area:p1;text-align:left;background-color:#407294;margin:10px;padding:10px;}
 .item2{grid-area:v1;text-align:left;margin:10px;padding:10px; } 
-.item3{grid-area:p2;text-align:left;background-color:#f88379;margin:10px;padding:10px;}
+.item3{grid-area:p2;text-align:left;background-color:#407294;margin:10px;padding:10px;}
 .item4{grid-area:v2;text-align:left;margin:10px;padding:10px;} 
-.item5{grid-area:p3;text-align:left;background-color:#f88379;margin:10px;padding:10px;}
+.item5{grid-area:p3;text-align:left;background-color:#407294;margin:10px;padding:10px;}
 .item6{grid-area:v3;text-align:left;margin:10px;padding:10px;} 
-.item7{grid-area:p4;text-align:left;background-color:#f88379;margin:10px;padding:10px;}
+.item7{grid-area:p4;text-align:left;background-color:#407294;margin:10px;padding:10px;}
 .item8{grid-area:v4;text-align:left;margin:10px;padding:10px;} 
-.item9{grid-area:p5;text-align:left;background-color:#f88379;margin:10px;padding:10px;}
+.item9{grid-area:p5;text-align:left;background-color:#407294;margin:10px;padding:10px;}
 .item10{grid-area:v5;text-align:left;margin:10px;padding:10px;} 
 
 .skills{color:white;
@@ -56,6 +56,7 @@ input[type=submit] {
      border-radius: 20px;
      box-shadow: 5px 5px 5px #eee;
      text-shadow:none;
+     cursor:pointer;
 }
 input[type=submit]:hover {
      background: #228B22;
