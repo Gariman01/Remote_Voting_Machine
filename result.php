@@ -19,7 +19,7 @@ background-size:cover;
 .item2_8{grid-area:n4;height:40px;background-color:#F5ADAD;}
 .item2_11{grid-area:p5;height:40px;width:40px;background:url("nota.jpg");background-repeat:no-repeat;background-size:contain;}
 .item2_10{grid-area:n5;height:40px;background-color:#F5ADAD;}
-.item2_9{grid-area:s;font-size:24px; border-radius:10px;background-color:#E44B5A;}
+.item2_9{grid-area:s;font-size:24px;}
 
 
 .item{
@@ -76,6 +76,21 @@ font-size:20px;
 
 p{
 font-size:20px;
+}
+	
+input[type=submit]{
+background: #E44B5A;
+color: #fff;
+border: 1px solid #F5ADAD;
+border-radius: 20px;
+box-shadow: 5px 5px 20px 2px grey;
+text-shadow:none;
+cursor:pointer;
+}
+
+input[type=submit]:active{
+transform:scale(0.96);
+box-shadow:3px 2px 22px 1px rgba(0,0,0,0.24);
 }
 
 </style>
