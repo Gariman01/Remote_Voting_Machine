@@ -37,6 +37,14 @@ background-size:cover;
 padding-bottom:10px;
 }
 
+input[type=submit]{
+color:#FFFFFF; 
+background-color:#000000;
+border-radius:20px;
+width:100px;
+cursor:pointer;
+}
+
 </style>
 <body align="center">
 
@@ -100,7 +108,7 @@ function myFunction() {
 }
 </script>
  
-<div class="item11"><input style="color:#FFFFFF; background-color:#000000;border-radius:20px;width:100px;" type="submit" name="submit" value="Login"></div>
+<div class="item11"><input type="submit" name="submit" value="Login"></div>
 
 </form>
 
