@@ -81,7 +81,7 @@ function test_input($data) {
 <form class="hi" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
 
- <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="First Name" required><span class="error">*</span></div>
+ <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="First Name(Case sensitive))" required><span class="error">*</span></div>
  <div class="item4"><input type="password" name="pass" id="myInput"  placeholder="Voter-Id"  required><span class="error">*</span></div>
 
 <div class="item5"><input type="checkbox" onclick="myFunction()">  Show the Voter-id</div>
