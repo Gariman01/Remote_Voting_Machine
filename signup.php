@@ -113,14 +113,14 @@ function test_input($data) {
 
 
 <div class="item1"><strong>Enter your name:</strong></div>     
-<div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>"  required><span class="error">*</span></div>
+<div class="item2"><input style="background-color:white;border-radius:4px;" type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>"  required><span class="error">*</span></div>
 
 <div class="item3" ><strong>Enter your voter-id:</strong></div>  
-<div class="item4"><input type="password" name="pass1" id="myInput" pattern="[0-9]+" required><span class="error">*</span></div>
+<div class="item4"><input style="background-color:white;border-radius:4px;" type="password" name="pass1" id="myInput" pattern="[0-9]+" required><span class="error">*</span></div>
 <div class="item5" style="color:black;"><input type="checkbox" onclick="myFunction()">  Show the Voter-id</div>
 
 <div class="item6" ><strong>Confirm the voter-id:</strong></div>  
-<div class="item7"><input type="password" name="pass2" id="myInput2" pattern="[0-9]+" required><span class="error">*</span></div>
+<div class="item7"><input style="background-color:white;border-radius:4px;" type="password" name="pass2" id="myInput2" pattern="[0-9]+" required><span class="error">*</span></div>
 <div class="item8" style="color:black;"><input type="checkbox" onclick="myFunction2()">  Show the confirmed Voter-Id</div>
 
 <script>
@@ -147,14 +147,14 @@ function myFunction2() {
 <div class="item10"><input type="file" name="upload" value="Choose_image" required><span class="error">*</span></div>
 
 <div class="item11"><strong>Contact-No.:</strong></div>
-<div class="item12"><input type="number" name="num" value="<?php echo isset($_POST['num'])?htmlspecialchars($_POST['num']):"";?>" ></div>
+<div class="item12"><input style="background-color:white;border-radius:4px;" type="number" name="num" value="<?php echo isset($_POST['num'])?htmlspecialchars($_POST['num']):"";?>" ></div>
 
 
 <div class="item13"><strong>Address:</strong></div>
 <div class="item14"><textarea name="address" rows="5" cols="25" value="<?php echo isset($_POST['address'])?htmlspecialchars($_POST['address']):"";?>" ></textarea></div>
 
 <div class="item15"><strong>Gender:</strong></div>
-<div class="item16" style="color:black;"><input type="radio" name="sex" value="Male" >Male
+<div class="item16" style="color:white;"><input type="radio" name="sex" value="Male" >Male
 		<input type="radio" name="sex" value="Female" >Female
 		<input type="radio" name="sex" value="Other" >Other
 </div>
