@@ -5,7 +5,7 @@
 
 .item2{  text-align:center;  padding-top:60px; }
 .item4{  text-align:center;  padding-top:30px;}
-.item5{  text-align:center; padding-bottom:60px; }
+.item5{  text-align:center; padding-bottom:60px; color:white; }
 .item11{ text-align:center; padding-bottom:20px;font-size:24px; }
 
 input{
@@ -145,30 +145,43 @@ if($username==$ad_name and $password==$ad_pass)
 	header("Location:Final_result.php");
 	exit();
 }
-
-if($count==1 and $row['status']==0)
-{	
-	$firstname=strtok($row['username']," ");
- 	if($firstname==$username)
+	
+if($count==1)
+{
+	if(str_word_count($username)!=1)
 	{
-		$_SESSION['id']=$password;
-		setcookie("UserID",$username);
-    		header("Location:login.html");
-		exit();
+		echo"<strong>Enter the first name only</strong>";
 	}
 	else
 	{
-		echo "<strong>Case not matched</strong>";	
+		if($row['status']==1)
+		{
+			echo '<strong>This user has already voted</strong>';
+		}
+		elseif($row['status']==0)
+		{
+			$firstname=strtok($row["username"]," ");
+			if($firstname==$username)
+			{
+				$_SESSION['id']=$password;
+				setcookie("UserID",$username);
+    				header("Location:login.html");
+				exit();
+			}
+	
+			else
+			{
+				echo "<strong>Username case not matching</strong>";
+			}
+		}
 	}
+
 }
 elseif($count!=1 and $password!="")
 {
 	echo "<strong>Username or password didn't match</strong>";
 }
-elseif($count==1 and $row['status']==1)
-{
-	echo '<strong>This user has already voted</strong>';
-}
+
 
 mysqli_close($con);
 
