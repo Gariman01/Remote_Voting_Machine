@@ -148,7 +148,7 @@ if($username==$ad_name and $password==$ad_pass)
 	
 if($count==1)
 {
-	if(str_word_count($username)!=1)
+	if(str_word_count($username,0,"_1234567890")!=1)
 	{
 		echo"<strong>Enter the first name only</strong>";
 	}
