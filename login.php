@@ -46,7 +46,7 @@ cursor:pointer;
 }
 
 </style>
-<body align="center">
+<body style="text-align:center;">
 
 
 <?php 
