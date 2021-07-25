@@ -60,6 +60,10 @@ padding-bottom:2%;
 font-size:24px;
 }
 
+.playSound{
+display:None;
+}
+
 img{
 height:40%;
 width:40%;
@@ -135,7 +139,7 @@ mysqli_query($con,$sql);
 
 header("refresh:5;url=login.php");
 echo('<h3>Successfully voted. You will be redirected to the login page.</h3>');
-echo '<embed src="sound.mp3" hidden="true" volume="10"/>' ;
+echo '<audio autoplay><source src="sound.mp3" type="audio/mp3" /></audio>' ;
 }
 else
 {
