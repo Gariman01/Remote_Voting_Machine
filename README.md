@@ -1,4 +1,4 @@
-# Remote_Voting_Machine
+# Remote Voting Machine
 Remote Voting Machine is a project deveoped by me and my friend to develop a voting system which allows one to vote from the comforts of their home via their mobile phone or personal computer while also implementing a face recognition system to ensure security.
 
 We have developed a website which allows one to vote - the backend of the website is written in PHP with the face recognition implemented using Python.
