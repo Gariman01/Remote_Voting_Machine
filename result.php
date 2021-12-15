@@ -106,7 +106,7 @@ include("connection.php");
 
 $id=$_SESSION['id'];
 
-if(!isset($id))
+if(!isset($id) or $id=="0000000000")
 {
 	header("Location:login.php");
 }
@@ -137,7 +137,7 @@ mysqli_query($con,$sql);
 $sql="UPDATE logintable SET status=1 where password='$id' ";
 mysqli_query($con,$sql);
 
-header("refresh:5;url=login.php");
+header("refresh:5;url=signout.php");
 echo('<h3>Successfully voted. You will be redirected to the login page.</h3>');
 echo '<audio autoplay><source src="sound.mp3" type="audio/mp3" /></audio>' ;
 }
@@ -150,7 +150,7 @@ mysqli_close($con);
 }
 ?>
 
-<div class="sign"><A href="signout.php">signout</A></div>
+<div class="sign"><a href="signout.php">Signout</a></div>
 <h1>Voting-time</h1>
 
 <div class="item">
@@ -160,7 +160,7 @@ mysqli_close($con);
 <img align="middle" src="<?php echo("img/".$img);?>">
 <p style="background-color:#F5ADAD;"><strong>Name:</strong><i><?php echo " ".$name;?></i></p>
 <p style="background-color:#F5ADAD;"><strong>Voter-Id:<i><?php echo " ".$id;?></i></strong></p>
-<p style="background-color:#F5ADAD;"><strong>Mobile-number:</strong><?php echo " ".$num;?></p>
+<p style="background-color:#F5ADAD;"><strong>Contact-number:</strong><?php echo " ".$num;?></p>
 <p style="background-color:#F5ADAD;"><strong>Address:</strong><?php echo " ".$add;?></p>
 <p style="background-color:#F5ADAD;"><strong>Gender:</strong><?php echo " ".$sex;?></p>
 

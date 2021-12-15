@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    if(isset($_SESSION['id']))
+    {
+        if($_SESSION['id']=="0000000000")
+        {
+            header("Location:Final_result.php");
+        }
+        else
+        {
+            header("Location:result.php");
+        }
+    }
+    else
+    {
+        if(isset($_COOKIE['UserID']))
+        {
+            header("Location:login.html");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -81,10 +103,10 @@ function test_input($data) {
 <form class="hi" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 
 
- <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="First Name(Case sensitive))" required><span class="error">*</span></div>
+ <div class="item2"><input type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>" placeholder="First Name (case sensitive))" required><span class="error">*</span></div>
  <div class="item4"><input type="password" name="pass" id="myInput"  placeholder="Voter-Id"  required><span class="error">*</span></div>
 
-<div class="item5"><input type="checkbox" onclick="myFunction()">  Show the Voter-id</div>
+<div class="item5"><input type="checkbox" onclick="myFunction()">  Show the Voter-Id</div>
 
 <?php
 if(!isset($u))
@@ -122,8 +144,6 @@ function myFunction() {
 
 if(isset($_POST['submit']))
 {
-session_start();
-
 $ad_name="admin";
 $ad_pass="0000000000";
 
@@ -163,10 +183,10 @@ if($count==1)
 			$firstname=strtok($row["username"]," ");
 			if($firstname==$username)
 			{
-				$_SESSION['id']=$password;
 				setcookie("UserID",$username);
-    				header("Location:login.html");
-				exit();
+                setcookie("Pass",$password);
+                header("Location:login.html");
+		        exit();
 			}
 	
 			else
@@ -191,13 +211,8 @@ mysqli_close($con);
 </div>
 
 <br><br>
-<div>Don't have an account? <A HREF="signup.php">Signup</A></div>
+<div>Don't have an account? <a HREF="signup.php">Signup</a></div>
 
 
 </body>
 </html>
-
-
-
-
-

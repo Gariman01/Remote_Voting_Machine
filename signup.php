@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    if(isset($_SESSION['id']))
+    {
+        if($_SESSION['id']=="0000000000")
+        {
+            header("Location:Final_result.php");
+        }
+        else
+        {
+            header("Location:result.php");
+        }
+    }
+    else
+    {
+        if(isset($_COOKIE['UserID']))
+        {
+            header("Location:login.html");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -112,14 +134,14 @@ function test_input($data) {
 <form class="hi" method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
 
 
-<div class="item1"><strong>Enter your name:</strong></div>     
+<div class="item1"><strong>Name:</strong></div>     
 <div class="item2"><input style="background-color:white;border-radius:4px;" type="text" name="user" value="<?php echo isset($_POST['user'])?htmlspecialchars($_POST['user']):"";?>"  required><span class="error">*</span></div>
 
-<div class="item3" ><strong>Enter your voter-id:</strong></div>  
+<div class="item3" ><strong>Enter your Voter-Id:</strong></div>  
 <div class="item4"><input style="background-color:white;border-radius:4px;" type="password" name="pass1" id="myInput" pattern="[0-9]+" required><span class="error">*</span></div>
-<div class="item5" style="color:black;"><input type="checkbox" onclick="myFunction()">  Show the Voter-id</div>
+<div class="item5" style="color:black;"><input type="checkbox" onclick="myFunction()">  Show the Voter-Id</div>
 
-<div class="item6" ><strong>Confirm the voter-id:</strong></div>  
+<div class="item6" ><strong>Confirm the Voter-Id:</strong></div>  
 <div class="item7"><input style="background-color:white;border-radius:4px;" type="password" name="pass2" id="myInput2" pattern="[0-9]+" required><span class="error">*</span></div>
 <div class="item8" style="color:black;"><input type="checkbox" onclick="myFunction2()">  Show the confirmed Voter-Id</div>
 
@@ -143,7 +165,7 @@ function myFunction2() {
 }
 </script>
 
-<div class="item9"><strong>Image upload:</strong></div>
+<div class="item9"><strong>Upload your image:</strong></div>
 <div class="item10"><input type="file" name="upload" value="Choose_image" required><span class="error">*</span></div>
 
 <div class="item11"><strong>Contact-No.:</strong></div>
@@ -196,7 +218,7 @@ if(!isset($sex))
 
 if($p1!=$p2 and $p1!="")
 {
-	echo "<strong>Voter-ids do not match</strong><br>";
+	echo "<strong>Voter-Ids do not match</strong><br>";
 	$p1="";
 }
 
@@ -267,7 +289,7 @@ if($p1==$p2 and valid($num) and validated($p1) and isset($_POST['submit']))
 		$result=mysqli_query($con,$sql);
 		if(mysqli_num_rows($result)>0)
 		{
-			echo "<strong>User with the same voter-id exists</strong>";
+			echo "<strong>User with the same Voter-Id exists</strong>";
 			$p1="";
 		}
 		else
@@ -290,13 +312,8 @@ if($p1==$p2 and valid($num) and validated($p1) and isset($_POST['submit']))
 ?>
 </div>
 
-<div>Already have an account? <A href="login.php">Go to login</A></div>
+<div>Already have an account? <a href="login.php">Go to login</a></div>
 
 
 </body>
 </html>
-
-
-
-
-

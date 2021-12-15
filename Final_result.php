@@ -75,8 +75,8 @@ input[type=submit]:hover {
 <div style="float:left;"><input type='submit' name="submit" value='Reset' ></div>
 </form>
 	
-<div style="float:right;"><A href="signout.php">signout</A></div>
-<h1>Voting results</h1>
+<div style="float:right;"><A href="signout.php">Signout</A></div>
+<h1>Voting Results</h1>
 <h2>(as of now)</h2>
 
 <?php
@@ -85,7 +85,7 @@ session_start();
 include("connection.php");
 
 $id=$_SESSION['id'];
-if(!isset($id))
+if(!isset($id) or $id!="0000000000")
 {
 	header("Location:login.php");
 }
